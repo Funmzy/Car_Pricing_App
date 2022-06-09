@@ -11,7 +11,7 @@ Content-Type: application/json
 GET http://localhost:6000/auth/1
 
 ### Get all users
-GET http://localhost:6000/auth?email=funmiexalted@yahoo.com
+GET http://localhost:6000/auth
 
 ### Delete a user
 DELETE http://localhost:6000/auth/4
@@ -24,3 +24,4 @@ Content-Type: application/json
 {
     "email": "funmiexalted@terragonltd.com"
 }
+
