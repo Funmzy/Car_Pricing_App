@@ -1,0 +1,26 @@
+### Create a new user
+POST http://localhost:6000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "funmiexalted@outlook.com",
+    "password": "abcdefgh"
+}
+
+### Get a user
+GET http://localhost:6000/auth/1
+
+### Get all users
+GET http://localhost:6000/auth?email=funmiexalted@yahoo.com
+
+### Delete a user
+DELETE http://localhost:6000/auth/4
+
+
+### Update a user
+PATCH http://localhost:6000/auth/9
+Content-Type: application/json
+
+{
+    "email": "funmiexalted@terragonltd.com"
+}
