@@ -3,6 +3,15 @@ POST http://localhost:6000/auth/signup
 Content-Type: application/json
 
 {
+    "email": "olumorinsammy@yahoo.com",
+    "password": "abcdefgh"
+}
+
+### Sign in an existing user
+POST http://localhost:6000/auth/signin
+Content-Type: application/json
+
+{
     "email": "olumorinsammy@gmail.com",
     "password": "abcdefgh"
 }
