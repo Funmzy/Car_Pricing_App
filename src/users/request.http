@@ -16,6 +16,12 @@ Content-Type: application/json
     "password": "abcdefgh"
 }
 
+### Get currently logged in user
+GET http://localhost:6000/auth/whoamI
+
+### Sign out an existing user
+POST http://localhost:6000/auth/signout
+
 ### Get a user
 GET http://localhost:6000/auth/1
 
