@@ -12,7 +12,7 @@ POST http://localhost:6000/auth/signin
 Content-Type: application/json
 
 {
-    "email": "olumorinsammy@gmail.com",
+    "email": "olumorinsammy@yahoo.com",
     "password": "abcdefgh"
 }
 

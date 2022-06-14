@@ -9,7 +9,7 @@ import {
   Query,
   NotFoundException,
   Session,
-  UseInterceptors,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { updateUserDto } from './dtos/updateUser.dto';
@@ -18,12 +18,13 @@ import { Serialize } from '../interceptor/serialize.interceptor';
 import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { CurrentUserInterceptor } from './interceptor/current-user.interceptor';
+// import { CurrentUserInterceptor } from './interceptor/current-user.interceptor';
 import { User } from './users.entity';
+import { AuthGuard } from './guards/auth.guard';
 
 @Controller('auth')
 @Serialize(UserDto)
-@UseInterceptors(CurrentUserInterceptor)
+// @UseInterceptors(CurrentUserInterceptor)
 export class UsersController {
   constructor(
     private userService: UsersService,
@@ -37,6 +38,9 @@ export class UsersController {
 
   @Get('/whoamI')
   identifyUser(@CurrentUser() user: User) {
+    if (!user) {
+      throw new NotFoundException('No user found');
+    }
     return user;
   }
 
@@ -70,6 +74,7 @@ export class UsersController {
   }
 
   @Get('/')
+  @UseGuards(AuthGuard)
   findAllUsers(@Query('email') email: string) {
     return this.userService.find(email);
   }
